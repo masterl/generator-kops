@@ -1,6 +1,19 @@
 const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
+  constructor (args, opts) {
+    super(args, opts);
+
+    this.argument(
+      'appname',
+      {
+        type:     String,
+        required: true,
+        desc:     'Your project name'
+      }
+    );
+  }
+
   writing () {
     this.copy_root_files();
     this.copy_gulptasks_files();
@@ -71,10 +84,14 @@ module.exports = class extends Generator {
       return;
     }
 
-    this.fs.copy(
-      this.templatePath(name),
-      this.destinationPath(name),
-      params
-    );
+    const project_name = this.options.appname;
+
+    if (this.fs.exists(this.templatePath(name))) {
+      this.fs.copy(
+        this.templatePath(name),
+        this.destinationPath(`${project_name}/${name}`),
+        params
+      );
+    }
   }
 };
