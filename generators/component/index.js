@@ -25,12 +25,14 @@ module.exports = class extends Generator {
 
     const component_path = this.get_component_path(component_name);
 
+    const model_name = this.get_model_name(component_name);
+
     this.fs.copyTpl(
       this.templatePath('script.js'),
       this.destinationPath(`${component_path}.js`),
       {
         component_name,
-        model_name: 'Testcomp'
+        model_name
       }
     );
   }
@@ -66,6 +68,18 @@ module.exports = class extends Generator {
         class_name
       }
     );
+  }
+
+  get_model_name (component_name) {
+    return component_name.match(/[0-9a-zA-Z]+/g).map(part => this.capitalize_first(part)).join('');
+  }
+
+  capitalize_first (str) {
+    const letters = str.split('');
+
+    letters[0] = letters[0].toUpperCase();
+
+    return letters.join('');
   }
 
   get_component_path (component_name) {
