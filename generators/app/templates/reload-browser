@@ -1,0 +1,16 @@
+#!/bin/bash
+
+usage() {
+  # xdotool uses regular expressions
+  echo "Usage: $0 Firefox [Chrome ...]"
+  exit 1
+}
+
+[ $# -lt 1 ] && usage
+
+readonly target_browser="$1"
+
+xdotool search --onlyvisible --class "$target_browser" windowfocus key \
+    --window %@ 'ctrl+r' || {
+  1>&2 echo "unable to signal an application named \"$target_browser\""
+}
