@@ -71,7 +71,9 @@ module.exports = class extends Generator {
   }
 
   get_model_name (component_name) {
-    return component_name.match(/[0-9a-zA-Z]+/g).map(part => this.capitalize_first(part)).join('');
+    return component_name.match(/[0-9a-zA-Z]+/g)
+      .map(part => this.capitalize_first(part))
+      .join('');
   }
 
   capitalize_first (str) {

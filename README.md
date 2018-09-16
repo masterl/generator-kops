@@ -14,8 +14,34 @@ npm install -g generator-kops
 Then generate your new project:
 
 ```bash
-yo kops
+yo kops <project-name>
 ```
+
+*`<project-name>` will be the folder where the project structure will be generated*
+
+---
+
+To generate new components:
+
+**make sure you are on the project root directory**
+
+```
+yo kops:component <component-name>
+```
+
+Example:
+
+`yo kops:component nav-bar`
+
+This will generate:
+
+```
+src/components/nav-bar/nav-bar.js
+src/components/nav-bar/nav-bar.pug
+src/components/nav-bar/nav-bar.styl
+```
+
+---
 
 ## Getting To Know Yeoman
 
