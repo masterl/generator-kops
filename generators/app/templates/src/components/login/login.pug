@@ -1,0 +1,11 @@
+.login
+  form
+    p Login
+    .field
+      label Email
+      input(type='text', data-bind='value: email')
+    .field
+      label Password
+      input(type='password', data-bind='value: password')
+    .submit
+      button(data-bind='click: login') Log in

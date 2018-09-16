@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Kops
+
+    link(rel="stylesheet", href="css/plugins.css")
+    link(rel="stylesheet", href="css/main.css")
+
+  body
+    .container(data-bind='component: { name: current_route().component, params: current_route().params }')
+
+    script(data-main="js/app/config", src="js/bundle.js")
