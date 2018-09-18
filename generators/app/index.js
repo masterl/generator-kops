@@ -171,12 +171,14 @@ module.exports = class extends Generator {
 
     const project_name = this.project_info.name;
 
-    if (this.fs.exists(this.templatePath(name))) {
-      this.fs.copy(
-        this.templatePath(name),
-        this.destinationPath(`${project_name}/${name}`),
-        params
-      );
-    }
+    if (!this.fs.exists(this.templatePath(name))) {
+      return;
+    };
+
+    this.fs.copy(
+      this.templatePath(name),
+      this.destinationPath(`${project_name}/${name}`),
+      params
+    );
   }
 };
