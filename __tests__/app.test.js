@@ -95,6 +95,10 @@ describe('generator-kops:app', () => {
       it('should contain project author', () => {
         assert.jsonFileContent(package_json_path, { author: project_info.author });
       });
+
+      it('should contain project license', () => {
+        assert.jsonFileContent(package_json_path, { license: project_info.license });
+      });
     });
   });
 
@@ -183,6 +187,10 @@ describe('generator-kops:app', () => {
 
       it('should contain project author', () => {
         assert.jsonFileContent(package_json_path, { author: project_info.author });
+      });
+
+      it('should contain project license', () => {
+        assert.jsonFileContent(package_json_path, { license: project_info.license });
       });
     });
   });

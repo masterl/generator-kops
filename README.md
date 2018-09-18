@@ -52,8 +52,8 @@ src/components/nav-bar/nav-bar.styl
   - [X] Set description
   - [X] Set keywords
   - [X] Set author
+  - [X] Set license
   - [ ] Remove fields
-     - [ ] license
      - [ ] homepage
      - [ ] bugs
      - [ ] repository

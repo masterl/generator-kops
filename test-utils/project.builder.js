@@ -5,7 +5,8 @@ class ProjectBuilder {
     const info = {
       version:     random.App.version(),
       description: random.Lorem.sentence(),
-      author:      random.Name.name()
+      author:      random.Name.name(),
+      license:     random.Name.name()
     };
 
     this.add_keywords(info);

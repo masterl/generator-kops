@@ -55,6 +55,12 @@ module.exports = class extends Generator {
         name:    'author',
         message: 'Project author:',
         default: ''
+      },
+      {
+        type:    'input',
+        name:    'license',
+        message: 'Project license?',
+        default: 'MIT'
       }
     );
 
