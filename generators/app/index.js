@@ -146,6 +146,8 @@ module.exports = class extends Generator {
 
   _copy_src_files () {
     const files = [
+      'src/.eslintrc',
+      'src/index.pug',
       'src/app/startup.js',
       'src/app/router.js',
       'src/app/bindings.js',

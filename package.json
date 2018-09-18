@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Yeoman generator for KOPS",
   "scripts": {
-    "test": "jest --setupFiles ./test-utils/helpers.js true --coverageReporters text-summary",
+    "test": "jest --setupFiles ./test-utils/helpers.js --collectCoverage true --coverageReporters text-summary",
     "fulltest": "jest --setupFiles ./test-utils/helpers.js --collectCoverage true --coverageReporters text-summary --coverageReporters html",
     "lint": "./node_modules/.bin/eslint ."
   },

@@ -58,6 +58,8 @@ describe('generator-kops:app', () => {
 
     it('create src', () => {
       assert.file([
+        `${project_name}/src/.eslintrc`,
+        `${project_name}/src/index.pug`,
         `${project_name}/src/app/startup.js`,
         `${project_name}/src/app/router.js`,
         `${project_name}/src/app/bindings.js`,
@@ -164,6 +166,8 @@ describe('generator-kops:app', () => {
 
     it('create src', () => {
       assert.file([
+        `${project_name}/src/.eslintrc`,
+        `${project_name}/src/index.pug`,
         `${project_name}/src/app/startup.js`,
         `${project_name}/src/app/router.js`,
         `${project_name}/src/app/bindings.js`,
