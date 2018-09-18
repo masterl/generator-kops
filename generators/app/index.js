@@ -1,3 +1,4 @@
+const chalk     = require('chalk');
 const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
@@ -5,13 +6,40 @@ module.exports = class extends Generator {
     super(args, opts);
 
     this.argument(
-      'appname',
+      'project_name',
       {
         type:     String,
-        required: true,
+        required: false,
         desc:     'Your project name'
       }
     );
+  }
+
+  prompting () {
+    this.project_info = {};
+
+    this.log(`Welcome to the sweet ${chalk.red('generator-kops')} generator!`);
+
+    const prompts = [];
+
+    if (!this.options.project_name) {
+      prompts.push({
+        type:    'input',
+        name:    'name',
+        message: 'What\'s the project name?',
+        default: this.appname
+      });
+    }
+
+    return this.prompt(prompts)
+      .then(answers => {
+        this.project_info = answers;
+      })
+      .then(() => {
+        if (this.options.project_name) {
+          this.project_info.name = this.options.project_name;
+        }
+      });
   }
 
   writing () {
@@ -84,7 +112,7 @@ module.exports = class extends Generator {
       return;
     }
 
-    const project_name = this.options.appname;
+    const project_name = this.project_info.name;
 
     if (this.fs.exists(this.templatePath(name))) {
       this.fs.copy(
