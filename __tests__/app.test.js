@@ -91,6 +91,10 @@ describe('generator-kops:app', () => {
       it('should contain project keywords', () => {
         assert.jsonFileContent(package_json_path, { keywords: project_info.keywords_as_array });
       });
+
+      it('should contain project author', () => {
+        assert.jsonFileContent(package_json_path, { author: project_info.author });
+      });
     });
   });
 
@@ -175,6 +179,10 @@ describe('generator-kops:app', () => {
 
       it('should contain project keywords', () => {
         assert.jsonFileContent(package_json_path, { keywords: project_info.keywords_as_array });
+      });
+
+      it('should contain project author', () => {
+        assert.jsonFileContent(package_json_path, { author: project_info.author });
       });
     });
   });

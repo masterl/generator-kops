@@ -3,8 +3,9 @@ const random = require('charlatan');
 class ProjectBuilder {
   static random_project_info () {
     const info = {
-      version:         random.App.version(),
-      description:     random.Lorem.sentence()
+      version:     random.App.version(),
+      description: random.Lorem.sentence(),
+      author:      random.Name.name()
     };
 
     this.add_keywords(info);

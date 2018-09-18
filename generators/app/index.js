@@ -49,6 +49,12 @@ module.exports = class extends Generator {
         name:    'keywords',
         message: 'Project keywords (e.g. knockout, pug):',
         default: ''
+      },
+      {
+        type:    'input',
+        name:    'author',
+        message: 'Project author:',
+        default: ''
       }
     );
 
