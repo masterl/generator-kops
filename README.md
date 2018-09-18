@@ -11,7 +11,7 @@ npm install -g yo
 npm install -g generator-kops
 ```
 
-Then generate your new project:
+### To create your project
 
 ```bash
 yo kops <project-name>
@@ -21,9 +21,9 @@ yo kops <project-name>
 
 ---
 
-To generate new components:
+### To generate a new knockout component
 
-**make sure you are on the project root directory**
+***Note: make sure you are on the project root directory***
 
 ```
 yo kops:component <component-name>
@@ -43,12 +43,9 @@ src/components/nav-bar/nav-bar.styl
 
 ---
 
-## Getting To Know Yeoman
+## TODOs
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+- [ ] Generate package.json according to user input
 
 ## License
 
