@@ -87,7 +87,6 @@ module.exports = class extends Generator {
 
   _copy_root_files () {
     const files = [
-      'LICENSE',
       'gulpfile.js',
       '.eslintrc',
       '.eslintignore',

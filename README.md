@@ -57,7 +57,7 @@ src/components/nav-bar/nav-bar.styl
      - [X] homepage
      - [X] bugs
      - [X] repository
-- [ ] Remove LICENSE file
+- [X] Remove LICENSE file from template
 - [X] Fix private methods names (prepend \_)
 
 ## License
