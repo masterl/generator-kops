@@ -12,10 +12,14 @@ describe('generator-kops:app', () => {
   });
 
   it('creates root files', () => {
+    // will be generated on project first install
+    assert.noFile([
+      `${project_name}/package-lock.json`
+    ]);
+
     assert.file([
       `${project_name}/LICENSE`,
       `${project_name}/package.json`,
-      `${project_name}/package-lock.json`,
       `${project_name}/gulpfile.js`,
       `${project_name}/.eslintrc`,
       `${project_name}/.eslintignore`,
