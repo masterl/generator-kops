@@ -31,6 +31,15 @@ module.exports = class extends Generator {
       });
     }
 
+    prompts.push(
+      {
+        type:    'input',
+        name:    'version',
+        message: 'What\'s the project version?',
+        default: '1.0.0'
+      }
+    );
+
     return this.prompt(prompts)
       .then(answers => {
         this.project_info = answers;
@@ -52,8 +61,6 @@ module.exports = class extends Generator {
   _copy_root_files () {
     const files = [
       'LICENSE',
-      'package.json',
-      'package-lock.json',
       'gulpfile.js',
       '.eslintrc',
       '.eslintignore',
@@ -64,6 +71,20 @@ module.exports = class extends Generator {
     ];
 
     files.map(filename => this._copy_file(filename));
+
+    this._transform_package_json();
+  }
+
+  _transform_package_json () {
+    const project_name = this.project_info.name;
+    const original_path = this.templatePath('package.json');
+
+    const package_json = this.fs.readJSON(original_path);
+
+    this.fs.writeJSON(
+      this.destinationPath(`${project_name}/package.json`),
+      Object.assign({}, package_json, this.project_info)
+    );
   }
 
   _copy_gulptasks_files () {

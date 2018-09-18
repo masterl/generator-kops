@@ -3,13 +3,22 @@ const assert  = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
 describe('generator-kops:app', () => {
+  let project_info;
+
+  beforeAll(() => {
+    project_info = {
+      version: random.App.version()
+    };
+  });
+
   describe('when project name is specified by command argument', () => {
     const project_name = 'via_argument';
 
     beforeAll(() => {
       return helpers
         .run(path.join(__dirname, '../generators/app'))
-        .withArguments([project_name]);
+        .withArguments([project_name])
+        .withPrompts(project_info);
     });
 
     it('creates root files', () => {
@@ -64,6 +73,18 @@ describe('generator-kops:app', () => {
         `${project_name}/src/stylus/0-defaults/html.styl`,
         `${project_name}/src/stylus/0-defaults/container.styl`
       ]);
+    });
+
+    describe('the package.json file', () => {
+      const package_json_path = `${project_name}/package.json`;
+
+      it('should contain project name', () => {
+        assert.fileContent(package_json_path, new RegExp(`"name":\\s+"${project_name}"`));
+      });
+
+      it('should contain project version', () => {
+        assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
+      });
     });
   });
 
@@ -71,11 +92,10 @@ describe('generator-kops:app', () => {
     const project_name = 'via_prompt';
 
     beforeAll(() => {
+      project_info.name = project_name;
       return helpers
         .run(path.join(__dirname, '../generators/app'))
-        .withPrompts({
-          name: project_name
-        });
+        .withPrompts(project_info);
     });
 
     it('creates root files', () => {
@@ -130,6 +150,18 @@ describe('generator-kops:app', () => {
         `${project_name}/src/stylus/0-defaults/html.styl`,
         `${project_name}/src/stylus/0-defaults/container.styl`
       ]);
+    });
+
+    describe('the package.json file', () => {
+      const package_json_path = `${project_name}/package.json`;
+
+      it('should contain project name', () => {
+        assert.fileContent(package_json_path, new RegExp(`"name":\\s+"${project_name}"`));
+      });
+
+      it('should contain project version', () => {
+        assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
+      });
     });
   });
 });

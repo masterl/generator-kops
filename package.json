@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "Yeoman generator for KOPS",
   "scripts": {
-    "test": "jest",
+    "test": "jest --setupFiles ./test_helpers.js",
     "lint": "./node_modules/.bin/eslint ."
   },
   "files": [
@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/masterl/generator-kops#readme",
   "devDependencies": {
+    "charlatan": "^1.1.0",
     "eslint": "^5.6.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",

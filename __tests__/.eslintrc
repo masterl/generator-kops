@@ -3,6 +3,7 @@
     "mocha": true
   },
   "globals": {
-    "beforeAll": true
+    "beforeAll": true,
+    "random": true
   }
 }
