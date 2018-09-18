@@ -1,6 +1,6 @@
 {
   "name": "generator-kops",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Yeoman generator for KOPS",
   "scripts": {
     "test": "jest --setupFiles ./test-utils/helpers.js --collectCoverage true --coverageReporters text-summary",
