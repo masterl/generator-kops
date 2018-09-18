@@ -99,6 +99,18 @@ describe('generator-kops:app', () => {
       it('should contain project license', () => {
         assert.jsonFileContent(package_json_path, { license: project_info.license });
       });
+
+      it('shouldn\'t contain homepage field', () => {
+        assert.noFileContent(package_json_path, /"homepage":/);
+      });
+
+      it('shouldn\'t contain bugs field', () => {
+        assert.noFileContent(package_json_path, /"bugs":/);
+      });
+
+      it('shouldn\'t contain repository field', () => {
+        assert.noFileContent(package_json_path, /"repository":/);
+      });
     });
   });
 
@@ -191,6 +203,18 @@ describe('generator-kops:app', () => {
 
       it('should contain project license', () => {
         assert.jsonFileContent(package_json_path, { license: project_info.license });
+      });
+
+      it('shouldn\'t contain homepage field', () => {
+        assert.noFileContent(package_json_path, /"homepage":/);
+      });
+
+      it('shouldn\'t contain bugs field', () => {
+        assert.noFileContent(package_json_path, /"bugs":/);
+      });
+
+      it('shouldn\'t contain repository field', () => {
+        assert.noFileContent(package_json_path, /"repository":/);
       });
     });
   });

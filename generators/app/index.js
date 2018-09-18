@@ -108,10 +108,20 @@ module.exports = class extends Generator {
 
     const package_json = this.fs.readJSON(original_path);
 
+    const output_json = Object.assign({}, package_json, this.project_info);
+
+    this._remove_unused_fields(output_json);
+
     this.fs.writeJSON(
       this.destinationPath(`${project_name}/package.json`),
-      Object.assign({}, package_json, this.project_info)
+      output_json
     );
+  }
+
+  _remove_unused_fields (json_object) {
+    delete json_object.homepage;
+    delete json_object.bugs;
+    delete json_object.repository;
   }
 
   _copy_gulptasks_files () {

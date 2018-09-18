@@ -46,17 +46,17 @@ src/components/nav-bar/nav-bar.styl
 ## TODOs
 
 - [X] Accept project name via argument or via prompt
-- [ ] Generate package.json according to user input
+- [X] Generate package.json according to user input
   - [X] Set name
   - [X] Set version
   - [X] Set description
   - [X] Set keywords
   - [X] Set author
   - [X] Set license
-  - [ ] Remove fields
-     - [ ] homepage
-     - [ ] bugs
-     - [ ] repository
+  - [X] Remove fields
+     - [X] homepage
+     - [X] bugs
+     - [X] repository
 - [ ] Remove LICENSE file
 - [X] Fix private methods names (prepend \_)
 
