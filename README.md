@@ -58,7 +58,7 @@ src/components/nav-bar/nav-bar.styl
      - [ ] bugs
      - [ ] repository
 - [ ] Remove LICENSE file
-- [ ] Fix private methods names (prepend \_)
+- [X] Fix private methods names (prepend \_)
 
 ## License
 

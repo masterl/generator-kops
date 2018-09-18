@@ -15,12 +15,12 @@ module.exports = class extends Generator {
   }
 
   writing () {
-    this.copy_component_script();
-    this.copy_component_template();
-    this.copy_component_style();
+    this._copy_component_script();
+    this._copy_component_template();
+    this._copy_component_style();
   }
 
-  copy_component_script () {
+  _copy_component_script () {
     const component_name = this.options.component_name;
 
     const component_path = this.get_component_path(component_name);
@@ -37,7 +37,7 @@ module.exports = class extends Generator {
     );
   }
 
-  copy_component_template () {
+  _copy_component_template () {
     const component_name = this.options.component_name;
 
     const component_path = this.get_component_path(component_name);
@@ -54,7 +54,7 @@ module.exports = class extends Generator {
     );
   }
 
-  copy_component_style () {
+  _copy_component_style () {
     const component_name = this.options.component_name;
 
     const component_path = this.get_component_path(component_name);

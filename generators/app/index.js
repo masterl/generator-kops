@@ -43,13 +43,13 @@ module.exports = class extends Generator {
   }
 
   writing () {
-    this.copy_root_files();
-    this.copy_gulptasks_files();
-    this.copy_buildutils_files();
-    this.copy_src_files();
+    this._copy_root_files();
+    this._copy_gulptasks_files();
+    this._copy_buildutils_files();
+    this._copy_src_files();
   }
 
-  copy_root_files () {
+  _copy_root_files () {
     const files = [
       'LICENSE',
       'package.json',
@@ -63,10 +63,10 @@ module.exports = class extends Generator {
       'autoreload.sh'
     ];
 
-    files.map(filename => this.copy_file(filename));
+    files.map(filename => this._copy_file(filename));
   }
 
-  copy_gulptasks_files () {
+  _copy_gulptasks_files () {
     const files = [
       'gulp-tasks/compile/app-bundle.js',
       'gulp-tasks/compile/index.js',
@@ -75,19 +75,19 @@ module.exports = class extends Generator {
       'gulp-tasks/serve-files.js'
     ];
 
-    files.map(filename => this.copy_file(filename));
+    files.map(filename => this._copy_file(filename));
   }
 
-  copy_buildutils_files () {
+  _copy_buildutils_files () {
     const files = [
       'build_utils/build_dir.js',
       'build_utils/src_dir.js'
     ];
 
-    files.map(filename => this.copy_file(filename));
+    files.map(filename => this._copy_file(filename));
   }
 
-  copy_src_files () {
+  _copy_src_files () {
     const files = [
       'src/app/startup.js',
       'src/app/router.js',
@@ -104,10 +104,10 @@ module.exports = class extends Generator {
       'src/stylus/0-defaults/container.styl'
     ];
 
-    files.map(filename => this.copy_file(filename));
+    files.map(filename => this._copy_file(filename));
   }
 
-  copy_file (name, params = null) {
+  _copy_file (name, params = null) {
     if (!name) {
       return;
     }
