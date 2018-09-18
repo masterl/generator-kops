@@ -20,6 +20,7 @@ date;
 while true; do
   test_files=$(find "${PROJECT_ROOT}" | grep "${PROJECT_ROOT}/__tests__")
   generator_files=$(find "${PROJECT_ROOT}" | grep "${PROJECT_ROOT}/generators")
-  echo -e "$test_files\\n$generator_files" |
+  test_utils_files=$(find "${PROJECT_ROOT}" | grep "${PROJECT_ROOT}/test-utils")
+  echo -e "$test_files\\n$generator_files\\n$test_utils_files" |
   entr -d bash -c "$entr_commands"
 done

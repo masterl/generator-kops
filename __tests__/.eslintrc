@@ -4,6 +4,7 @@
   },
   "globals": {
     "beforeAll": true,
-    "random": true
+    "random": true,
+    "ProjectBuilder": true
   }
 }

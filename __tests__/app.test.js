@@ -6,10 +6,7 @@ describe('generator-kops:app', () => {
   let project_info;
 
   beforeAll(() => {
-    project_info = {
-      version:     random.App.version(),
-      description: random.Lorem.sentence()
-    };
+    project_info = ProjectBuilder.random_project_info();
   });
 
   describe('when project name is specified by command argument', () => {
@@ -80,15 +77,19 @@ describe('generator-kops:app', () => {
       const package_json_path = `${project_name}/package.json`;
 
       it('should contain project name', () => {
-        assert.fileContent(package_json_path, new RegExp(`"name":\\s+"${project_name}"`));
+        assert.jsonFileContent(package_json_path, { name: project_name });
       });
 
       it('should contain project version', () => {
-        assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
+        assert.jsonFileContent(package_json_path, { version: project_info.version });
       });
 
       it('should contain project description', () => {
-        assert.fileContent(package_json_path, new RegExp(`"description":\\s+"${project_info.description}"`));
+        assert.jsonFileContent(package_json_path, { description: project_info.description });
+      });
+
+      it('should contain project keywords', () => {
+        assert.jsonFileContent(package_json_path, { keywords: project_info.keywords_as_array });
       });
     });
   });
@@ -161,15 +162,19 @@ describe('generator-kops:app', () => {
       const package_json_path = `${project_name}/package.json`;
 
       it('should contain project name', () => {
-        assert.fileContent(package_json_path, new RegExp(`"name":\\s+"${project_name}"`));
+        assert.jsonFileContent(package_json_path, { name: project_name });
       });
 
       it('should contain project version', () => {
-        assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
+        assert.jsonFileContent(package_json_path, { version: project_info.version });
       });
 
       it('should contain project description', () => {
-        assert.fileContent(package_json_path, new RegExp(`"description":\\s+"${project_info.description}"`));
+        assert.jsonFileContent(package_json_path, { description: project_info.description });
+      });
+
+      it('should contain project keywords', () => {
+        assert.jsonFileContent(package_json_path, { keywords: project_info.keywords_as_array });
       });
     });
   });

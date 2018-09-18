@@ -43,6 +43,12 @@ module.exports = class extends Generator {
         name:    'description',
         message: 'Project description:',
         default: ''
+      },
+      {
+        type:    'input',
+        name:    'keywords',
+        message: 'Project keywords (e.g. knockout, pug):',
+        default: ''
       }
     );
 
@@ -54,6 +60,9 @@ module.exports = class extends Generator {
         if (this.options.project_name) {
           this.project_info.name = this.options.project_name;
         }
+      })
+      .then(() => {
+        this.project_info.keywords = this.project_info.keywords.split(',').map(keyword => keyword.trim());
       });
   }
 

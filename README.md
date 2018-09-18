@@ -50,7 +50,7 @@ src/components/nav-bar/nav-bar.styl
   - [X] Set name
   - [X] Set version
   - [X] Set description
-  - [ ] Set keywords
+  - [X] Set keywords
   - [ ] Set author
   - [ ] Remove fields
      - [ ] license
