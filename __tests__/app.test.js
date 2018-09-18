@@ -7,7 +7,8 @@ describe('generator-kops:app', () => {
 
   beforeAll(() => {
     project_info = {
-      version: random.App.version()
+      version:     random.App.version(),
+      description: random.Lorem.sentence()
     };
   });
 
@@ -85,6 +86,10 @@ describe('generator-kops:app', () => {
       it('should contain project version', () => {
         assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
       });
+
+      it('should contain project description', () => {
+        assert.fileContent(package_json_path, new RegExp(`"description":\\s+"${project_info.description}"`));
+      });
     });
   });
 
@@ -161,6 +166,10 @@ describe('generator-kops:app', () => {
 
       it('should contain project version', () => {
         assert.fileContent(package_json_path, new RegExp(`"version":\\s+"${project_info.version}"`));
+      });
+
+      it('should contain project description', () => {
+        assert.fileContent(package_json_path, new RegExp(`"description":\\s+"${project_info.description}"`));
       });
     });
   });

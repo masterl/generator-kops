@@ -49,7 +49,7 @@ src/components/nav-bar/nav-bar.styl
 - [ ] Generate package.json according to user input
   - [X] Set name
   - [X] Set version
-  - [ ] Set description
+  - [X] Set description
   - [ ] Set keywords
   - [ ] Set author
   - [ ] Remove fields
