@@ -80,14 +80,13 @@ module.exports = class extends Generator {
 
   writing () {
     this._copy_root_files();
-    this._copy_gulptasks_files();
+    this._copy_gulpfilejs_files();
     this._copy_buildutils_files();
     this._copy_src_files();
   }
 
   _copy_root_files () {
     const files = [
-      'gulpfile.js',
       '.eslintrc',
       '.eslintignore',
       '.gitignore',
@@ -123,13 +122,14 @@ module.exports = class extends Generator {
     delete json_object.repository;
   }
 
-  _copy_gulptasks_files () {
+  _copy_gulpfilejs_files () {
     const files = [
-      'gulp-tasks/compile/app-bundle.js',
-      'gulp-tasks/compile/index.js',
-      'gulp-tasks/compile/stylus.js',
-      'gulp-tasks/npm/css.js',
-      'gulp-tasks/serve-files.js'
+      'gulpfile.js/compile-app-bundle.js',
+      'gulpfile.js/compile-index.js',
+      'gulpfile.js/compile-stylus.js',
+      'gulpfile.js/index.js',
+      'gulpfile.js/npm-css.js',
+      'gulpfile.js/serve-files.js'
     ];
 
     files.map(filename => this._copy_file(filename));

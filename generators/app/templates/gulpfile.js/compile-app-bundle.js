@@ -1,16 +1,16 @@
-const gulp    = require('gulp');
-const webpack = require('webpack-stream');
-const path    = require('path');
+const { src, dest } = require('gulp');
+const webpack       = require('webpack-stream');
+const path          = require('path');
 
-const build_dir = require('../../build_utils/build_dir');
-const src_dir = require('../../build_utils/src_dir');
+const build_dir = require('../build_utils/build_dir');
+const src_dir = require('../build_utils/src_dir');
 
 const dest_dir = path.join(build_dir, 'js');
 
 const mode = process.env.KOPS_DEV ? 'development' : 'production';
 
-module.exports = () => {
-  return gulp.src('src/app/startup.js')
+function compile_app_bundle () {
+  return src('src/app/startup.js')
     .pipe(webpack({
       mode,
       output: {
@@ -45,5 +45,7 @@ module.exports = () => {
         }
       }
     }))
-    .pipe(gulp.dest(dest_dir));
-};
+    .pipe(dest(dest_dir));
+}
+
+module.exports = compile_app_bundle;

@@ -24,28 +24,40 @@ describe('generator-kops:app', () => {
         // will be generated on project first install
         `${project_name}/package-lock.json`,
         // client should set his own license
-        `${project_name}/LICENSE`
+        `${project_name}/LICENSE`,
+        // These were removed in favor of using live-server
+        `${project_name}/reload-browser`,
+        `${project_name}/autoreload.sh`
       ]);
 
       assert.file([
         `${project_name}/package.json`,
-        `${project_name}/gulpfile.js`,
         `${project_name}/.eslintrc`,
         `${project_name}/.eslintignore`,
         `${project_name}/.gitignore`,
-        `${project_name}/README.md`,
-        `${project_name}/reload-browser`,
-        `${project_name}/autoreload.sh`
+        `${project_name}/README.md`
       ]);
     });
 
-    it('create gulp-tasks', () => {
-      assert.file([
+    // updated to gulp 4, so gulpfile.js is now a folder
+    it('shouldn\'t create gulp-tasks', () => {
+      assert.noFile([
         `${project_name}/gulp-tasks/compile/app-bundle.js`,
         `${project_name}/gulp-tasks/compile/index.js`,
         `${project_name}/gulp-tasks/compile/stylus.js`,
         `${project_name}/gulp-tasks/npm/css.js`,
         `${project_name}/gulp-tasks/serve-files.js`
+      ]);
+    });
+
+    it('should create gulpfile.js folder', () => {
+      assert.file([
+        `${project_name}/gulpfile.js/compile-app-bundle.js`,
+        `${project_name}/gulpfile.js/compile-index.js`,
+        `${project_name}/gulpfile.js/compile-stylus.js`,
+        `${project_name}/gulpfile.js/index.js`,
+        `${project_name}/gulpfile.js/npm-css.js`,
+        `${project_name}/gulpfile.js/serve-files.js`
       ]);
     });
 
@@ -132,28 +144,40 @@ describe('generator-kops:app', () => {
         // will be generated on project first install
         `${project_name}/package-lock.json`,
         // client should set his own license
-        `${project_name}/LICENSE`
+        `${project_name}/LICENSE`,
+        // These were removed in favor of using live-server
+        `${project_name}/reload-browser`,
+        `${project_name}/autoreload.sh`
       ]);
 
       assert.file([
         `${project_name}/package.json`,
-        `${project_name}/gulpfile.js`,
         `${project_name}/.eslintrc`,
         `${project_name}/.eslintignore`,
         `${project_name}/.gitignore`,
-        `${project_name}/README.md`,
-        `${project_name}/reload-browser`,
-        `${project_name}/autoreload.sh`
+        `${project_name}/README.md`
       ]);
     });
 
-    it('create gulp-tasks', () => {
-      assert.file([
+    // updated to gulp 4, so gulpfile.js is now a folder
+    it('shouldn\'t create gulp-tasks', () => {
+      assert.noFile([
         `${project_name}/gulp-tasks/compile/app-bundle.js`,
         `${project_name}/gulp-tasks/compile/index.js`,
         `${project_name}/gulp-tasks/compile/stylus.js`,
         `${project_name}/gulp-tasks/npm/css.js`,
         `${project_name}/gulp-tasks/serve-files.js`
+      ]);
+    });
+
+    it('should create gulpfile.js folder', () => {
+      assert.file([
+        `${project_name}/gulpfile.js/compile-app-bundle.js`,
+        `${project_name}/gulpfile.js/compile-index.js`,
+        `${project_name}/gulpfile.js/compile-stylus.js`,
+        `${project_name}/gulpfile.js/index.js`,
+        `${project_name}/gulpfile.js/npm-css.js`,
+        `${project_name}/gulpfile.js/serve-files.js`
       ]);
     });
 

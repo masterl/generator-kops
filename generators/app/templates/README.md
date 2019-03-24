@@ -2,14 +2,13 @@
 
 Project structure for SPA development using KnockoutJS, Pug and Stylus
 
+***Features live-reload!***
 
 ## Install
 
 - Copy files
 - npm install
 - npm run dev
-- if you have `entr` installed:
- - `./autoreload.sh` to automatically refresh Firefox (edit the script to target another browser)
 
 ## Note:
 
