@@ -50,6 +50,8 @@ exports.default = series(parallel(...compile_and_npm_tasks), default_task);
 
 exports.startdev = series(
   parallel(...compile_and_npm_tasks),
-  exports['serve-files'],
-  startdev
+  parallel(
+    exports['serve-files'],
+    startdev
+  )
 );

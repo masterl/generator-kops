@@ -10,6 +10,10 @@ Project structure for SPA development using KnockoutJS, Pug and Stylus
 - npm install
 - npm run dev
 
+## Yeoman generator for components
+
+[generator-kops](https://github.com/masterl/generator-kops)
+
 ## Note:
 
 I got this idea from https://github.com/SteveSanderson/generator-ko
